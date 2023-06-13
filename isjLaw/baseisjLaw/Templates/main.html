@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <!--meta charset='utf-8'-->
+    <!--meta http-equiv='X-UA-Compatible' content='IE=edge'-->
+    <title>ISJ LAW</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='{% static './baseisjLaw/css/style.css' %}'>
+    <script src='main.js'></script>
+    
+    <style>
+        body {
+            background-color: white; /* Thème clair */
+            color: black;
+            //height: 100vh;
+          }
+          
+          @media (prefers-color-scheme: dark) {
+            body {
+              background-color: #222428; /* Thème sombre */
+              color: #f4f5f8;
+            }
+        }
+
+        pre {
+            white-space: pre-wrap;
+            font-family: "Times New Roman";
+        }
+         
+        
+        /*a {
+           color: #4b5156
+        }*/
+          
+    </style>
+    
+</head>
+
+<body>
+    {% block content %}
+
+    {% endblock content %}    
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% for titre in data %}
+    <p><h2>{{titre.libelle}}</h2></p>
+    {% for chapitre in chapters %}
+        {% if chapitre.titre == titre.id %}
+            <!--p><h3>{{chapitre.libelle}}</h3></p-->
+            {% for section in sections %}
+                {% if section.chapitre == chapitre.id %}
+                    <!--p><h3>{{section.libelle}}</h3></p-->
+                    {% for article in articles %}
+                        {% if article.section == section.id %}
+                            <p><h3>{{article.libelle}}</h3></p>
+                            {% for alinea in alineas %}
+                                {% if alinea.article == article.id %}
+                                    <p><h3>({{alinea.numero}}) {{alinea.libelle}}</h3></p>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
