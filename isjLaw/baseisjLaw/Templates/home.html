@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <h2>Textes des lois</h2>
+
+    <p><h2><a href="">{{textes.0.nom}}</a></h2></p>
+    <p><h2><a href="{% url 'code_procedure_penale' %}">{{textes.1.nom}}</a></h2></p>
+    <p><h2><a href="">{{textes.2.nom}}</a></h2></p>
+    
+    
+{% endblock content %}
