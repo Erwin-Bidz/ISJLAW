@@ -1,11 +1,21 @@
-<h1>Login</h1>
+{% extends 'main.html' %}
+{% block content %}
 
-<form method="POST">
+<style>
+    .middle {
+      text-align: center;
+    }
+</style>
+
+<h3 class="middle">Qui êtes vous?</h3>
+
+<form class="middle" method="POST">
     {% csrf_token %}
     {{form.as_p}}
-    <input type="submit" value="Login">
+    <input type="submit" value="Connexion">
 </form>
 
 
-<p>Pas de compte? <a href="{% url 'register' %}">S'inscrire</a></p>
+<!--p>Pas de compte? <a href="{% url 'register' %}">S'inscrire</a></p-->
 
+{% endblock content %}

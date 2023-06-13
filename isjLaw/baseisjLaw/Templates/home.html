@@ -9,20 +9,24 @@
         .a_blue{
             color: #36abe0;
         }
+
+        div{
+            text-align: center;
+        }
     </style>
 
-    <h2>Textes des lois</h2>
+    <div>
+        <h2>Textes des lois</h2>
 
-    <p><h2><a class="green" href="{% url 'code_penal' %}">{{textes.0.nom}}</a></h2></p>
-    <p><h2><a class="green" href="{% url 'code_procedure_penale' %}">{{textes.1.nom}}</a></h2></p>
-    <p><h2><a class="green" href="{% url 'constitution' %}">{{textes.2.nom}}</a></h2></p>
-    
+        <p><h2><a class="green" href="{% url 'code_penal' %}">{{textes.0.nom}}</a></h2></p>
+        <p><h2><a class="green" href="{% url 'code_procedure_penale' %}">{{textes.1.nom}}</a></h2></p>
+        <p><h2><a class="green" href="{% url 'constitution' %}">{{textes.2.nom}}</a></h2></p>
+    <div>
 
-    <a class="a_blue" href="">Modifier un des textes de lois?</a>
-    <!--{% if request.user.is_authenticated %}
-        <a href="{% url 'logout' %}">Déconnexion</a>
-        {% else %}
-        <a href="{% url 'login' %}">Connexion</a>
-    {% endif %}-->
+    <a class="a_blue" href="{% url 'login' %}">Modifier un des textes de lois</a>
+    {% if request.user.is_authenticated %}
+        <a class="a_blue" href="{% url 'logout' %}"><br>Déconnexion</a>
+        <a class="a_blue" href="{% url 'register' %}"><br>Ajouter un ayant-droit</a>
+    {% endif %}
     
 {% endblock content %}

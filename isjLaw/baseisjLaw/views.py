@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from rest_framework import viewsets
 
 from .models import Texte, Livre, Titre, Chapitre, Section, Article, Alinea
@@ -31,7 +31,7 @@ class RegisterPage(FormView):
     template_name = 'baseisjLaw/register.html'
     form_class = UserCreationForm
     redirect_authenticated_user = True
-    success_url = reverse_lazy('tasks')
+    success_url = reverse_lazy('constitution')
     
     def form_valid(self, form):
         user = form.save()
@@ -40,10 +40,10 @@ class RegisterPage(FormView):
         return super(RegisterPage, self).form_valid(form)
         ##S'assurer ici que l'utilisateur est authentifié
 
-    def get(self, *args, **kwargs):
-        if self.request.user.is_authenticated:
-            return redirect('tasks')
-        return super(RegisterPage, self).get(*args, **kwargs)
+    #def get(self, *args, **kwargs):
+    #    if self.request.user.is_authenticated:
+    #        return redirect('home')
+    #    return super(RegisterPage, self).get(*args, **kwargs)
 
 class TexteViewSet(viewsets.ModelViewSet):
     

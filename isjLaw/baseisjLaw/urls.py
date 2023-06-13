@@ -20,7 +20,7 @@ router.register('alineas', AlineaViewSet)
 urlpatterns = [
     path('', Home.as_view(), name='home'),
     path('login/', LoginPage.as_view(), name='login'),
-    path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
+    path('logout/', LogoutView.as_view(next_page='home'), name='logout'),
     path('register/', RegisterPage.as_view(), name='register'),
     path('code_penal/', code_penal, name='code_penal'),
     path('code_procedure_penale/', code_procedure_penale, name='code_procedure_penale'),
