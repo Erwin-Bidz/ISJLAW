@@ -1,0 +1,22 @@
+{% extends 'basefinale/main.html' %}
+{% block content %}
+
+<div class="header-bar">
+    <div>
+        <h1>Delete</h1>
+    </div>
+    <h3><a href="{% url 'files' %}">Back to home</a></h3>
+</div>
+
+<p>.</p><p>.</p><p>.</p>
+<pre>
+
+    
+</pre>
+<form method="POST">
+    {% csrf_token %}
+    <h2><p>Are you sure you want to delete the "{{fichier}}" file?</p></h2>
+    <input class="button" type="submit" value="Delete"/>
+</form>
+
+{% endblock content %}

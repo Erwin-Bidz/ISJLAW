@@ -1,0 +1,185 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>CONFIDENZ</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+        <link rel="shortcut icon" type="png" href="{%  static 'logo_conf.png' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        
+
+        <style>
+            body{
+                background-color: #fafafa;
+                font-family: Calibri;
+                //padding-top: 0;
+            }
+              
+              @media (prefers-color-scheme: dark) {
+                body {
+                  background-color: #262626; /* Thème sombre */
+                  color: white;
+                  font-family: Calibri;
+                }
+              }
+           
+           
+            
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+                {
+                    font-family: Calibri;
+                    
+            }
+
+            a,
+            p {
+                color: #4b5156
+            }
+
+            @media (prefers-color-scheme: dark) {
+                a{
+                    color: #36abe0;
+                }
+
+                p{
+                    color: white;
+                }
+            }
+
+            .a_red{
+                color: red;
+                text-decoration: none;
+            }
+
+            .a_view{
+                color: #262626;
+                text-decoration: none;
+            }
+            @media (prefers-color-scheme: dark) {
+                .a_view{
+                    color: white;
+                    text-decoration: none;
+                }
+            }
+
+            .a_green{
+                color : #29c467;
+                text-decoration: none;
+            }
+
+            .star{
+                color: #ffbc06;
+                text-align: left;
+            }
+
+            .container{
+                //max-width: 550px;
+                max-width: auto;
+                margin-top: 100px;
+                padding-top: 100px;
+                background-color: #fff;
+                // -webkit-box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
+                //box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
+            }
+
+            @media (prefers-color-scheme: dark) {
+                container{
+                  background-color: black; /* Thème sombre */
+                  max-width: auto;
+                    margin: auto;
+                    background-color: #262626;
+                    // -webkit-box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
+                    //box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
+                }
+              }
+
+            .header-bar{
+                //display: flex;
+                justify-content: space-between;
+                color: #fff;
+                padding-left: 20px;
+                //border-radius: 5px 5px 0 0;
+                //background-color: linear-gradient(90deg, #EEA390 0%, #EB796F 43%, #EB796F 100%);
+                background-color: #eb445a;
+                width: 100%;
+                position: fixed;
+                top:0;
+                left: 0;
+            }
+
+            .header-bar a{
+                color: rgb(247, 247, 247);
+                text-decoration: none;
+            }
+
+
+            .button{
+                display: inline-block;
+                background-color: #eb445a;
+                border-radius: 10px;
+                border: 4px double #cccccc;
+                color: #eeeeee;
+                text-align: center;
+                font-size: 20px;
+                padding: 6px;
+                width: 150px;
+                transition: all 0.5s;
+                cursor: pointer;
+                margin: 5px;
+            }
+            .button span {
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                transition: 0.5s;
+            }
+            .button span:after {
+                content: "\00bb";
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                right: -20px;
+                transition: 0.5s;
+            }
+            .button:hover {
+                //background-color: #7b38d8;
+                background-color: #eeeeee;
+                color: #eb445a; 
+            }
+            .button:hover span {
+                padding-right: 25px;
+              }
+            .button:hover span:after {
+                opacity: 1;
+                right: 0;
+            }
+
+            pre {
+                white-space: pre-wrap;
+                font-family: Calibri;
+            }
+
+        </style>
+        
+    </head>
+    <body>
+        
+        <div>
+            {% block content %}
+
+            {% endblock content %}
+        </div>
+
+    </body>
+</html>

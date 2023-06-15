@@ -1,0 +1,24 @@
+{% extends 'basefinale/main.html' %}
+{% block content %}
+<div class="header-bar">
+    <div>
+        <h1>CONFIDENZ</h1>
+    </div>
+</div>
+
+<p>.</p><p>.</p>
+<h1>Register</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <h2><label>{{form.username.label}}</label> {{form.username}}</h2>
+    <h2><label>{{form.password1.label}}</label> {{form.password1}}</h2>
+    <h2><label>Confirm password</label> {{form.password2}}</h2>
+    <h2><label>{{form.email.label}}</label> {{form.email}}</h2>
+
+    <input class="button" type="submit" value="Register">
+</form>
+
+<p><h3><b>Already have an account?</b> <a href="{% url 'login' %}">Login</a></h3></p>
+
+{% endblock content %}

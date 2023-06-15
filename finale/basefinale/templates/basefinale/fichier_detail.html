@@ -1,0 +1,37 @@
+{% extends 'basefinale/main.html' %}
+{% block content %}
+
+
+<div class="header-bar">
+    <div>
+        <h1>Details of {{file}}</h1>
+    </div>
+    <h3><a href="{% url 'files' %}">Back to home</a></h3>
+</div>
+
+<p>.</p><p>.</p><p>.</p>
+<pre>
+
+    
+</pre>
+<h2>Uploaded: {{file.upload_date}}</h2>
+<h2>Favourite? {{file.favourite}}</h2>
+<h2>Content: <a href="{% url 'contenu' file.id %}">{{file.title}}</a></h2>
+<!--h2><a href="http://127.0.0.1:8000/media/{{file.content}}">Download this file &#10515;</a></h2-->
+
+<!--div id="data"></div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $.getJSON('/fichier/{{ file.pk }}/', function(data) {
+        var html = '';
+        for (var i = 0; i < data.length; i++) {
+          html += '<p>' + data[i] + '</p>';
+        }
+        $('#data').html(html);
+      });
+    });
+  </script-->
+
+{% endblock content %}

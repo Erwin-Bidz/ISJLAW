@@ -1,0 +1,34 @@
+{% extends 'basefinale/main.html' %}
+{% block content %}
+
+<style>
+    .nope{
+        color: white;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .nope{
+            color: black;
+        }
+    }
+</style>
+
+<div class="header-bar">
+    <div>
+        <h1>Add A New Excell File</h1>
+    </div>
+    <h3><a href="{% url 'files' %}">Back to home</a></h3>
+</div>
+
+<p>.</p><p>.</p><p>.</p>
+<pre>
+
+    
+</pre>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h3>{{form.as_p}}</h3>
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock content %}
