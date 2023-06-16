@@ -1,0 +1,12 @@
+django
+psycopg2
+djangorestframework
+django-filter
+dj-rest-auth
+django-cors-headers
+drf-yasg
+django-private-storage
+django-core
+openpyxl
+numpy
+gunicorn
