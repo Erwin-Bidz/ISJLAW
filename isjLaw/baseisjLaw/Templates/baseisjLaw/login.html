@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<style>
+    .middle {
+      text-align: center;
+    }
+</style>
+
+<h2 class="middle">Qui êtes vous?
+
+<form class="middle" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Connexion">
+</form>
+
+</h2>
+
+<!--p>Pas de compte? <a href="{% url 'register' %}">S'inscrire</a></p-->
+
+{% endblock content %}

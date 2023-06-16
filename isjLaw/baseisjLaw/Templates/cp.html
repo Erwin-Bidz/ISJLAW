@@ -8,7 +8,7 @@
 </style>
 
 <div class="header-bar">
-    <form method="post" action="{% url 'code_procedure_penale' %}">
+    <form method="post" action="{% url 'code_penal' %}">
         {% csrf_token %}
         <input type="text" name="search_term" placeholder="Recherche sur alinea">
         <button type="submit">Rechercher</button>
@@ -21,25 +21,26 @@
 
 </pre>
 
-<p><h1 class="middle">REPUBIQUE DU CAMEROUN</h1></p>
+<h1 class="middle">REPUBIQUE DU CAMEROUN</h1>
 <h5 class="middle">Paix-Travail-Patrie <br>------------------------</h5>
 
 <h3>
-    <p class="middle">Journal Officiel de la République du Cameroun</p>
-    <p><h4 class="middle">Portant {{texte.0.nom}}</h4></p>
+    <!--p class="middle">Journal Officiel de la République du Cameroun</p-->
     <p class="middle">Loi N° <u><i>{{texte.0.numero_de_loi}}</i></u> du <u><i>{{texte.0.adoption}}</i></u></p>
+    <p><h4 class="middle">Portant {{texte.0.nom}}</h4></p>
+    
 </h3>
 
 <h3>{{texte.0.preambule}}</h3>
 {% for livre in livres %}
     {% if livre.text == texte.0.id %}
-        <p><h3 class="middle">{{livre.libelle}}</h3></p>
+        <!--p><h3 class="middle">{{livre.libelle}}</h3></p-->
         {% for titre in titres %}
             {% if titre.livre == livre.id %}
                 <p><h3 class="middle">{{titre.libelle}}</h3></p>
                 {% for chapitre in chapters %}
                     {% if chapitre.titre == titre.id %}
-                        <!--p><h3 class="middle">{{chapitre.libelle}}</h3></p-->
+                        <p><h3 class="middle">{{chapitre.libelle}}</h3></p>
                         {% for section in sections %}
                             {% if section.chapitre == chapitre.id %}
                                 <!--p><h3 class="middle">{{section.libelle}}</h3></p-->
@@ -64,5 +65,3 @@
 
 
 {% endblock content %}
-
-
