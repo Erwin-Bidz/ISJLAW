@@ -9,3 +9,4 @@ django-private-storage
 django-core
 openpyxl
 numpy
+gunicorn
