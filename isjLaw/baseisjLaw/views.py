@@ -85,11 +85,33 @@ class AlineaViewSet(viewsets.ModelViewSet):
     
     queryset = Alinea.objects.all()
     serializer_class = AlineaSerializer
-    filterset_fields = ['article', 'numero']
+    filterset_fields = ['article', 'numero', 'libelle']
 
 
+
+# def code_penal(request):
+#     texteResponse = requests.get('http://127.0.0.1:8000/api/textes/?id=1')
+#     livreResponse = requests.get('http://127.0.0.1:8000/api/livres/?text=1&numero=')
+#     titreResponse = requests.get('http://127.0.0.1:8000/api/titres/')
+#     chapResponse = requests.get('http://127.0.0.1:8000/api/chapitres/')
+#     secResponse = requests.get('http://127.0.0.1:8000/api/sections/')
+#     articleResponse = requests.get('http://127.0.0.1:8000/api/articles/')
+#     alineaResponse = requests.get('http://127.0.0.1:8000/api/alineas/')
+#     if texteResponse.status_code == 200 and livreResponse.status_code == 200 and titreResponse.status_code == 200 and chapResponse.status_code == 200 and secResponse.status_code == 200 and articleResponse.status_code == 200 and alineaResponse.status_code == 200:
+#         texte = texteResponse.json()
+#         livres = livreResponse.json()
+#         titres = titreResponse.json()
+#         chapters = chapResponse.json()
+#         sections = secResponse.json()
+#         articles = articleResponse.json()
+#         alineas = alineaResponse.json()
+#         context = {'texte': texte, 'livres': livres, 'titres': titres, 'chapters': chapters, 'sections': sections, 'articles': articles, 'alineas': alineas}
+#         return render(request, 'cp.html', context)
+#     else:
+#         return render(request, 'error.html')
 
 def code_penal(request):
+    search_term = request.POST.get('search_term')
     texteResponse = requests.get('http://127.0.0.1:8000/api/textes/?id=1')
     livreResponse = requests.get('http://127.0.0.1:8000/api/livres/?text=1&numero=')
     titreResponse = requests.get('http://127.0.0.1:8000/api/titres/')
@@ -105,12 +127,16 @@ def code_penal(request):
         sections = secResponse.json()
         articles = articleResponse.json()
         alineas = alineaResponse.json()
-        context = {'texte': texte, 'livres': livres, 'titres': titres, 'chapters': chapters, 'sections': sections, 'articles': articles, 'alineas': alineas}
+        context = {'texte': texte, 'livres': livres, 'titres': titres, 'chapters': chapters, 'sections': sections, 'articles': articles, 'alineas': alineas, 'search_term': search_term}
         return render(request, 'cp.html', context)
     else:
         return render(request, 'error.html')
 
 def code_procedure_penale(request):
+    search_term = request.POST.get('search_term')
+    if search_term is None:
+        search_term = ' '
+
     texteResponse = requests.get('http://127.0.0.1:8000/api/textes/?id=2')
     livreResponse = requests.get('http://127.0.0.1:8000/api/livres/?text=2&numero=')
     titreResponse = requests.get('http://127.0.0.1:8000/api/titres/')
@@ -126,12 +152,13 @@ def code_procedure_penale(request):
         sections = secResponse.json()
         articles = articleResponse.json()
         alineas = alineaResponse.json()
-        context = {'texte': texte, 'livres': livres, 'titres': titres, 'chapters': chapters, 'sections': sections, 'articles': articles, 'alineas': alineas}
+        context = {'texte': texte, 'livres': livres, 'titres': titres, 'chapters': chapters, 'sections': sections, 'articles': articles, 'alineas': alineas, 'search_term': search_term}
         return render(request, 'cpp.html', context)
     else:
         return render(request, 'error.html')
 
 def constitution(request):
+    search_term = request.POST.get('search_term')
     texteResponse = requests.get('http://127.0.0.1:8000/api/textes/?id=3')
     livreResponse = requests.get('http://127.0.0.1:8000/api/livres/?text=3&numero=')
     titreResponse = requests.get('http://127.0.0.1:8000/api/titres/')
@@ -147,7 +174,7 @@ def constitution(request):
         sections = secResponse.json()
         articles = articleResponse.json()
         alineas = alineaResponse.json()
-        context = {'texte': texte, 'livres': livres, 'titres': titres, 'chapters': chapters, 'sections': sections, 'articles': articles, 'alineas': alineas}
+        context = {'texte': texte, 'livres': livres, 'titres': titres, 'chapters': chapters, 'sections': sections, 'articles': articles, 'alineas': alineas, 'search_term': search_term}
         return render(request, 'constitution.html', context)
     else:
         return render(request, 'error.html')

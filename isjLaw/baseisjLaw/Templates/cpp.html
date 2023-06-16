@@ -7,6 +7,20 @@
     }
 </style>
 
+<div class="header-bar">
+    <form method="post" action="{% url 'code_procedure_penale' %}">
+        {% csrf_token %}
+        <input type="text" name="search_term" placeholder="Recherche sur alinea">
+        <button type="submit">Rechercher</button>
+    </form>
+</div>
+
+<pre>
+
+
+
+</pre>
+
 <p><h1 class="middle">REPUBIQUE DU CAMEROUN</h1></p>
 <h5 class="middle">Paix-Travail-Patrie <br>------------------------</h5>
 
@@ -33,7 +47,7 @@
                                     {% if article.section == section.id %}
                                         <p><h3><blockquote>{{article.libelle}}</blockquote></h3></p>
                                         {% for alinea in alineas %}
-                                            {% if alinea.article == article.id %}
+                                            {% if alinea.article == article.id and search_term in alinea.libelle %}
                                                 <p><h4><pre>({{alinea.numero}}) {{alinea.libelle}}</pre></h4></p>
                                             {% endif %}
                                         {% endfor %}
