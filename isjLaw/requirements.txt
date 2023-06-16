@@ -8,3 +8,4 @@ drf-yasg
 django-private-storage
 django-core
 numpy
+gunicorn
